@@ -27,23 +27,23 @@ if st.session_state.logged_in:
     pagelist = {
         "❤️ Home account":
         [
-            st.Page(dir_path / "log_out.py",        icon=":material/logout:"),
-            st.Page(dir_path / "Hello.py",          icon=":material/favorite:"),
-            st.Page(dir_path / "Animation_Demo.py", icon=":material/wifi_home:"),
-            st.Page(dir_path / "Plotting_Demo.py",  icon=":material/favorite:"),
-            st.Page(dir_path / "Mapping_Demo.py",   icon=":material/favorite:"),
-            st.Page(dir_path / "Dataframe_Demo.py", icon=":material/favorite:"),
+            st.Page(dir_path/"log_out.py",        icon=":material/logout:"),
+            st.Page(dir_path/"Hello.py",          icon=":material/favorite:"),
+            st.Page(dir_path/"Animation_Demo.py", icon=":material/wifi_home:"),
+            st.Page(dir_path/"Plotting_Demo.py",  icon=":material/favorite:"),
+            st.Page(dir_path/"Mapping_Demo.py",   icon=":material/favorite:"),
+            st.Page(dir_path/"Dataframe_Demo.py", icon=":material/favorite:"),
         ],
         "🔥 Your account":
         [
-            st.Page(dir_path / "Hello2.py",          icon=":material/favorite:"),
+            st.Page(dir_path/"Hello2.py",          icon=":material/favorite:"),
         ],
     }
 else:
     pagelist = {
             "🔥 Log in":
             [
-                st.Page(dir_path / "log_in.py",        icon=":material/login:"),
+                st.Page(dir_path/"log_in.py",     icon=":material/login:"),
             ],
         }
 def run():
