@@ -26,6 +26,8 @@ dir_path = Path(__file__).parent
 print("=======")
 print(dir_path)
 
+
+
 ctx = get_script_run_ctx()
 print(ctx)
 ctx_main_script = ""
@@ -34,11 +36,11 @@ if ctx:
     print(f"ctx_main_script=={ctx_main_script}")
 
 # 获取页面路径（假设 page 是从外部传入的）
-page = "/some/user/input/path"
+page = "./"
 
 main_script_path = os.path.join(os.getcwd(), ctx_main_script)
 main_script_directory = os.path.dirname(main_script_path)
-print(f"main_script_path=={main_script_path}")
+print(f"main_script_directory=={main_script_directory}")
  
  # Convenience for handling ./ notation and ensure leading / doesn't refer to root directory
 page = os.path.normpath(page.strip("/"))
@@ -47,28 +49,34 @@ page = os.path.normpath(page.strip("/"))
 requested_page = os.path.join(main_script_directory, page)
 print(f"requested_page=={requested_page}")
 
+dir_path = main_script_directory
+print("=======")
+print(os.path.join(dir_path,"log_out.py"))
+
+
+
 
 if st.session_state.logged_in:
     pagelist = {
         "❤️ Home account":
         [
-            st.Page(dir_path/"log_out.py",        icon=":material/logout:"),
-            st.Page(dir_path/"Hello.py",          icon=":material/favorite:"),
-            st.Page(dir_path/"Animation_Demo.py", icon=":material/wifi_home:"),
-            st.Page(dir_path/"Plotting_Demo.py",  icon=":material/favorite:"),
-            st.Page(dir_path/"Mapping_Demo.py",   icon=":material/favorite:"),
-            st.Page(dir_path/"Dataframe_Demo.py", icon=":material/favorite:"),
+            st.Page(os.path.join(dir_path/"log_out.py"),        icon=":material/logout:"),
+            st.Page(os.path.join(dir_path/"Hello.py"),          icon=":material/favorite:"),
+            st.Page(os.path.join(dir_path/"Animation_Demo.py"), icon=":material/wifi_home:"),
+            st.Page(os.path.join(dir_path/"Plotting_Demo.py"),  icon=":material/favorite:"),
+            st.Page(os.path.join(dir_path/"Mapping_Demo.py"),   icon=":material/favorite:"),
+            st.Page(os.path.join(dir_path/"Dataframe_Demo.py"), icon=":material/favorite:"),
         ],
         "🔥 Your account":
         [
-            st.Page(dir_path/"Hello2.py",          icon=":material/favorite:"),
+            st.Page(os.path.join(dir_path,"Hello2.py"),          icon=":material/favorite:"),
         ],
     }
 else:
     pagelist = {
             "🔥 Log in":
             [
-                st.Page(dir_path/"log_in.py",     icon=":material/login:"),
+                st.Page(os.path.join(dir_path,"log_in.py"),     icon=":material/login:"),
             ],
         }
 def run():
