@@ -60,12 +60,12 @@ if st.session_state.logged_in:
     pagelist = {
         "❤️ Home account":
         [
-            st.Page(os.path.join(dir_path/"log_out.py"),        icon=":material/logout:"),
-            st.Page(os.path.join(dir_path/"Hello.py"),          icon=":material/favorite:"),
-            st.Page(os.path.join(dir_path/"Animation_Demo.py"), icon=":material/wifi_home:"),
-            st.Page(os.path.join(dir_path/"Plotting_Demo.py"),  icon=":material/favorite:"),
-            st.Page(os.path.join(dir_path/"Mapping_Demo.py"),   icon=":material/favorite:"),
-            st.Page(os.path.join(dir_path/"Dataframe_Demo.py"), icon=":material/favorite:"),
+            st.Page(os.path.join(dir_path,"log_out.py"),        icon=":material/logout:"),
+            st.Page(os.path.join(dir_path,"Hello.py"),          icon=":material/favorite:"),
+            st.Page(os.path.join(dir_path,"Animation_Demo.py"), icon=":material/wifi_home:"),
+            st.Page(os.path.join(dir_path,"Plotting_Demo.py"),  icon=":material/favorite:"),
+            st.Page(os.path.join(dir_path,"Mapping_Demo.py"),   icon=":material/favorite:"),
+            st.Page(os.path.join(dir_path,"Dataframe_Demo.py"), icon=":material/favorite:"),
         ],
         "🔥 Your account":
         [
