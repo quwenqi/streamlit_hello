@@ -20,7 +20,7 @@ if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
 dir_path = Path(__file__).parent
-print(=======)
+print("=======")
 print(dir_path)
  
 if st.session_state.logged_in:
