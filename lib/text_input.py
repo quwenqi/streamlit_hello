@@ -65,15 +65,10 @@ with st.form(key="my_form_sub"):
 
 with st.form(key="my_form_sub2"):
 
-
-
-
     # 创建一个水平容器
     col1,col2,col3,col4= st.columns(4,vertical_alignment='center',gap='small',border=False)  # 创建4列，等宽
 
     # 在每一列中放置控件
- 
-
     with col1:
         text_input2 = st.text_input(
             label="ID:",
