@@ -2,9 +2,40 @@ import streamlit as st
 from datetime import datetime
 from io import StringIO
  
-
+import streamlit as st
+ 
+ 
 
 with st.form(key="my_form_sub"):
+
+    st.markdown("""
+        <style>
+            .stTextInput {
+                display: flex;
+                align-items: center;
+            }
+            .stTextInput > label {
+                width: 80px;  /* 设置 label 的宽度 */
+                margin-right: 0px;  /* 设置 label 和输入框之间的间距 */
+                margin-left: 0px;  /* 设置 label 和输入框之间的间距 */
+                font-weight: bold;  /* 为 st.text_input 的标签加粗 */
+                font-size: 16px;
+            }
+                    
+            .stSlider {
+                display: flex;
+                align-items: center;
+            }
+            .stSlider > label {
+                width: 80px;  /* 设置 label 的宽度 */
+                margin-right: 0px;  /* 设置 label 和输入框之间的间距 */
+                font-weight: bold;
+                font-size: 16px;
+            }
+        </style>
+    """, unsafe_allow_html=True)
+
+    
     # 创建一个水平容器
     col3_1,col3_2,col3_3 = st.columns(3,vertical_alignment='center',gap='small',border=False)  # 创建4列，等宽
     # 在每一列中放置控件
@@ -26,7 +57,7 @@ with st.form(key="my_form_sub"):
         )
     # 提交按钮放在第四列
     with col3_3:
-        submitted_2 = st.form_submit_button("Submit_1" )
+        submitted_2 = st.form_submit_button("Submit_1" ,use_container_width=True)
 
         if submitted_2:
             st.write('Submitted!')
@@ -73,7 +104,10 @@ with st.form(key="my_form_sub2"):
 
     # 提交按钮放在第四列
     with col4:
-        submitted = st.form_submit_button("Submitd_2" )
-
+        submitted = st.form_submit_button("Submitd_2",use_container_width=True,type="tertiary",icon="🔥")
+       
         if submitted:
             st.write('Submitted!')
+but = st.button("提交", key="button1",use_container_width=True,type="primary",icon="🔥")
+if st.button("Aloha", type="tertiary"):
+    st.write("Ciao")
