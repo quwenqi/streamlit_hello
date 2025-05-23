@@ -2,6 +2,16 @@ import os
 import streamlit as st
 from streamlit_tree_select import tree_select
 
+import tkinter as tk
+from tkinter import filedialog
+
+def select_folder_path():
+    root = tk.Tk()
+    root.withdraw()  # 隐藏主窗口
+    folder_path = filedialog.askdirectory()  # 打开选择文件夹对话框
+    root.destroy()  # 删除 Tkinter 对象``
+    return folder_path
+
 def get_folder_structure(path):
     """获取文件夹结构并转换为 tree_select 所需的 nodes 格式"""
     nodes = []
@@ -13,17 +23,31 @@ def get_folder_structure(path):
         nodes.append(node)
     return nodes
 
-# 指定要加载的本地文件夹路径
-folder_path = "/home/ftpuser2"
+if 'folder_path' not in st.session_state: 
+    st.session_state.folder_path = None
 
-# 获取文件夹结构
-folder_nodes = get_folder_structure(folder_path)
+if 'button_label' not in st.session_state:
+    st.session_state.button_label = "选择文件夹路径:"
 
 # 展示树形菜单
 st.title("本地文件夹树形菜单")
-return_select = tree_select(nodes=folder_nodes)
+ 
+ 
+if st.button(st.session_state.button_label):
+    folder_path = select_folder_path()
+    if folder_path:
+        st.session_state.button_label = "选择文件夹路径:"
+        st.session_state.folder_path = folder_path
+        st.session_state.button_label+=folder_path
+        st.rerun()
+        
+ 
 
-# 显示选择结果
-if return_select:
-    st.write("已选择的文件夹/文件：")
-    st.write(return_select)
+if st.session_state.folder_path:
+    folder_nodes = get_folder_structure(st.session_state.folder_path)
+    return_select = tree_select(nodes=folder_nodes)
+
+    # 显示选择结果
+    if return_select:
+        st.write("已选择的文件夹/文件：")
+        st.write(return_select)
